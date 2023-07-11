@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+constexpr long double eps=1e-9;
+using ll= long long;
+#define F first
+#define S second
+#define pb push_back
+#define mp make_pair
+#define loop(i,a,b) for (int i = a; i <= b; i++)
+
+int main()
+{
+    
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout<<setprecision(12)<<fixed;
+    ll n,m;
+    cin>>n>>m;
+    ll prev=1,cnt=0;
+    ll a[m];
+    for(ll i=0;i<m;i++)cin>>a[i];
+    for(ll i=0;i<m;i++)
+    {
+        if(a[i]>prev)
+        {
+            cnt+=a[i]-prev; 
+        }
+        else if(a[i]<prev)
+        {
+            cnt+=n-prev+a[i];
+        }
+        prev=a[i];
+    }
+    cout<<cnt;
+}
